@@ -1,38 +1,42 @@
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible
+filetype off
 
-Bundle "gmarik/vundle"
-Bundle "altercation/vim-colors-solarized"
-Bundle "scrooloose/nerdtree"
-Bundle "scrooloose/nerdcommenter"
-Bundle "scrooloose/syntastic"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-repeat"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-unimpaired"
-"Bundle "tpope/vim-rails"
-Bundle "Shougo/neocomplcache"
-Bundle "Shougo/neosnippet"
-Bundle "Shougo/vimproc"
-Bundle "Shougo/unite.vim"
-Bundle "sjl/gundo.vim"
-Bundle "kien/ctrlp.vim"
-Bundle "epmatsw/ag.vim"
-Bundle "cocoa.vim"
-Bundle "skammer/vim-css-color"
-Bundle "vim-ruby/vim-ruby"
-"Bundle "Pydiction"
-"Bundle "pyflakes.vim"
-Bundle "Lokaltog/vim-powerline"
-Bundle "Lokaltog/vim-easymotion"
-Bundle "mattn/zencoding-vim"
-"Bundle "h1mesuke/unite-outline"
-Bundle "majutsushi/tagbar"
-Bundle "nathanaelkane/vim-indent-guides"
-"Bundle "kana/vim-smartinput"
-Bundle "godlygeek/tabular"
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
+Plugin 'gmarik/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-unimpaired'
+"Plugin 'tpope/vim-rails'
+Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'epmatsw/ag.vim'
+Plugin 'cocoa.vim'
+Plugin 'skammer/vim-css-color'
+Plugin 'vim-ruby/vim-ruby'
+"Plugin 'Pydiction'
+"Plugin 'pyflakes.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mattn/emmet-vim'
+"Plugin 'h1mesuke/unite-outline'
+Plugin 'majutsushi/tagbar'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'kana/vim-smartinput'
+Plugin 'godlygeek/tabular'
+
+call vundle#end()
 filetype plugin indent on
 
 
