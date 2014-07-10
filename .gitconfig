@@ -1,23 +1,24 @@
-[user]
-	name = michealchan
-	email = michealchann@gmail.com
-[github]
-    user = michealchan
 [color]
-    ui = true
-[core]
-    editor = /usr/bin/vim
-	excludesfile = /Users/michealchan/.gitignore_global
+	ui = true
 [alias]
-    st = status
-    com = commit
-    co = checkout
-    br = branch
-    cl = clone
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	st = status
+	com = commit
+	co = checkout
+	br = branch
+	cl = clone
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+[user]
+	email = chen9288@126.com
+	name = michael
+[core]
+	editor = /usr/bin/vim
+[github]
+	user = stwind
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[push]
+	default = matching
