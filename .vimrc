@@ -44,6 +44,7 @@ filetype plugin indent on
 "style
 "===================================================
 set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936
 set termencoding=utf-8
 set autochdir
 set history=100
