@@ -24,6 +24,7 @@ alias ....="cd ../../.."
 alias lsd='ls -l | grep "^d"'
 alias lsf='ls -l | grep -v "^d"'
 alias gerl="grep -rin --include=\"*.erl\""
+alias dt="cd ~/Desktop"
 
 alias v="vim"
 alias m="mvim"

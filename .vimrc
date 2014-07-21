@@ -15,9 +15,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-unimpaired'
 "Plugin 'tpope/vim-rails'
-Plugin 'Shougo/neocomplcache'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/vimproc'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'kien/ctrlp.vim'
@@ -46,6 +46,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 set termencoding=utf-8
+set fileencoding=utf-8
 set autochdir
 set history=100
 set showcmd
@@ -206,14 +207,15 @@ let g:gundo_right = 1
 "neocomplcache
 "---------------------------------------------------
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 8
-let g:neocomplcache_enable_ignore_case = 0
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 0
 let g:neocomplcache_enable_underbar_completion = 0
+let g:neocomplcache_enable_ignore_case = 1
 let g:neocomplcache_enable_wildcard = 0
 let g:neocomplcache_manual_completion_start_length = 0
 let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_max_list = 8
+let g:neosnippet#disable_runtime_snippets = { "_": 1, }
 
 if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
@@ -226,33 +228,13 @@ endif
 
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-e> neocomplcache#cancel_popup()
-
-inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-y> neocomplcache#cancel_popup()
 inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : '<CR>'
-inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() . '<Space>' : '<Space>'
 
-"imap <C-k> <Plug>(neosnippet_expand_or_jump)
-"smap <C-k> <Plug>(neosnippet_expand_or_jump)
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,xhtml,xml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
