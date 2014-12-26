@@ -15,7 +15,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-unimpaired'
 "Plugin 'tpope/vim-rails'
-Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
@@ -206,41 +207,41 @@ let g:gundo_right = 1
 "---------------------------------------------------
 "neocomplcache
 "---------------------------------------------------
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 0
-let g:neocomplcache_enable_underbar_completion = 0
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_wildcard = 0
-let g:neocomplcache_manual_completion_start_length = 0
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_max_list = 8
-let g:neosnippet#disable_runtime_snippets = { "_": 1, }
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#max_list = 20
 
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
 
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-y> neocomplcache#cancel_popup()
-inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : '<CR>'
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
 
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>  neocomplete#undo_completion()
+inoremap <expr><C-l>  neocomplete#complete_common_string()
+inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><CR>   pumvisible() ? neocomplete#close_popup() : '<CR>'
+inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,xhtml,xml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
 
 "---------------------------------------------------
 "easymotion
