@@ -95,3 +95,56 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+
+#
+# Qu Jing iTerm & Terminal Setup Script
+# version 0.3
+# Felix Ding
+# July 12, 2014 @Costa
+#
+function start_qujing {
+  export http_proxy='theironislands.f.getqujing.net:30735'
+  export HTTPS_PROXY='theironislands.f.getqujing.net:30735'
+}
+#
+# Qu Jing iTerm & Terminal Setup Script
+# version 0.3
+# Felix Ding
+# July 12, 2014 @Costa
+#
+function start_qujing {
+  export http_proxy='theironislands.f.getqujing.net:30735'
+  export HTTPS_PROXY='theironislands.f.getqujing.net:30735'
+}
+#
+# Qu Jing iTerm & Terminal Setup Script
+# version 0.4
+# Felix Ding
+# Nov 18, 2014
+#
+function start_qujing {
+  export http_proxy='http://theironislands.f.getqujing.net:38551'
+  export HTTPS_PROXY='http://theironislands.f.getqujing.net:38551'
+}
+#
+# Qu Jing iTerm & Terminal Setup Script
+# version 0.4
+# Felix Ding
+# Nov 18, 2014
+#
+function start_qujing {
+  export http_proxy='http://theironislands.f.getqujing.net:38551'
+  export HTTPS_PROXY='http://theironislands.f.getqujing.net:38551'
+}
+#
+# Qu Jing iTerm & Terminal Setup Script
+# version 0.4
+# Felix Ding
+# Nov 18, 2014
+#
+function start_qujing {
+  export http_proxy='http://theironislands.f.getqujing.net:38551'
+  export HTTPS_PROXY='http://theironislands.f.getqujing.net:38551'
+}
