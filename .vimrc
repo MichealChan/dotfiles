@@ -22,7 +22,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'epmatsw/ag.vim'
+Plugin 'gabesoft/vim-ags'
 Plugin 'cocoa.vim'
 Plugin 'skammer/vim-css-color'
 Plugin 'vim-ruby/vim-ruby'
@@ -83,6 +83,8 @@ endif
 
 if has("gui_running")
     set cursorline
+    set background=light
+    colorscheme solarized
     set guifont=Monaco:h14
     set guioptions-=m
     set guioptions-=T
@@ -109,6 +111,7 @@ command! FM call DoPrettyXML()
 "打开文件光标设置为上次关闭的位置
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/DerivedData/*
 
 "===================================================
 "Key mapping
@@ -195,7 +198,7 @@ nnoremap <Leader>l :TagbarToggle<CR>
 "powerline
 "---------------------------------------------------
 set laststatus=2
-let g:Powerline_stl_path_style='full'                       
+let g:Powerline_stl_path_style='relative'                       
 
 "---------------------------------------------------
 "Gundo
@@ -211,7 +214,7 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 0
 let g:neocomplete#max_list = 20
 
 if !exists('g:neocomplete#keyword_patterns')
@@ -251,10 +254,6 @@ let g:EasyMotion_leader_key = '<space>'
 "---------------------------------------------------
 "solarized
 "---------------------------------------------------
-"if has("gui_running")
-    set background=dark
-    colorscheme solarized
-"endif
 let g:solarized_contrast = "high"
 let g:solarized_visibility = "high"
 
@@ -264,8 +263,7 @@ let g:solarized_visibility = "high"
 let g:ctrlp_by_filename = 1
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
-"set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.vim/*,*/Library/*,*/.neocon/*,*/Movies/*,*/Music/*,*/Downloads/*,*/Documents/*,*/Pictures/*
-let g:ctrlp_custom_ignore = { 'dir':  '\.git$\|\.vim$\|\.hg$\|\.svn$\|Library$\|\.neocon$\|\Movies$\|\Music$\|\Downloads$\|\Documents$\|\Pictures$',
+let g:ctrlp_custom_ignore = { 'dir':  '\.git$\|\.vim$\|\.hg$\|\.svn$\|Library$\|\.neocon$\|DerivedData$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pdf$\|\.dat$\|\.png$\|\.swp$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
