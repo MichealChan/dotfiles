@@ -83,7 +83,7 @@ endif
 
 if has("gui_running")
     set cursorline
-    set background=light
+    set background=dark
     colorscheme solarized
     set guifont=Monaco:h14
     set guioptions-=m
